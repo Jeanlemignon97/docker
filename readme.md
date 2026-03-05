@@ -12,3 +12,10 @@ docker ps -a
 ````sh
 docker build -t image-bienvenue:1.0.0 .
 ```
+
+## supprimer une image
+````sh
+docker rmi image-bienvenue:1.0.0
+```
+
+
