@@ -7,3 +7,8 @@ docker run -v ./02-default-website/index.html:/usr/share/nginx/html/index.html -
 ````sh
 docker ps -a
 ```
+
+## Build a Dockerfile
+````sh
+docker build -t image-bienvenue:1.0.0 .
+```
