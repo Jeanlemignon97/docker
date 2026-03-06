@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  image-bienvenue-86: # nom du service
+    image: jeanlemignon/image-bienvenue:1.0.0 # image à utiliser pour le conteneur
+    container_name: image-bienvenue-86 # nom du conteneur
+    ports:
+      - "86:80" # mapping des ports
+  image-bienvenue-85: # nom du service
+    image: jeanlemignon/image-bienvenue:1.0.0 # image à utiliser pour le conteneur
+    container_name: image-bienvenue-85 # nom du conteneur
+    ports:
+      - "85:80" # mapping des ports
+    volumes:
+      - ./index.html /usr/share/nginx/html/index.html # montage du volume
+    environment:
+      - NODE_ENV=production
+
+    #docker run --name image-bienvenue-85 -p 85:80 -d jeanlemignon/image-bienvenue:1.0.0
