@@ -1,0 +1,43 @@
+services:
+  mongo:
+    image: mongo:7.0.5
+    container_name: mongo
+    ports:
+      - "27017:27017"
+    restart: always
+    networks:
+      - api-network
+    environment: # variables d'environnement pour la configuration de MongoDB
+      MONGO_INITDB_ROOT_USERNAME: ${MONGO_USERNAME} # nom d'utilisateur pour l'administrateur de la base de données
+      MONGO_INITDB_ROOT_PASSWORD: ${MONGO_PASSWORD} # mot de passe pour l'administrateur de la base de données
+    volumes:
+      - mongo-data:/data/db # volume pour persister les données de MongoDB
+      - mongo-config:/etc/mongo # volume pour les fichiers de configuration de MongoDB
+
+  mongo-express:
+    image: mongo-express:1.0.2-20-alpine3.19
+    container_name: mongo-express
+    restart: always # redémarrage automatique du conteneur en cas de plantage
+    networks:  # connexion au réseau pour permettre la communication avec le conteneur MongoDB
+      - api-network
+    ports:
+      - "8081:8081"
+    environment:
+      ME_CONFIG_MONGODB_ADMINUSERNAME: ${MONGO_USERNAME}
+      ME_CONFIG_MONGODB_ADMINPASSWORD: ${MONGO_PASSWORD}
+      ME_CONFIG_MONGODB_URL: "mongodb://${MONGO_USERNAME}:${MONGO_PASSWORD}@mongo:27017/" # URL de connexion à MongoDB, en utilisant les variables d'environnement pour le nom d'utilisateur et le mot de passe
+      ME_CONFIG_BASICAUTH: false
+
+networks:
+  api-network:
+    name: api-network
+    external: true
+
+volumes: # déclaration du volume pour les données de MongoDB
+  mongo-data: # déclaration du volume pour les données de MongoDB
+    name: mongo-data
+    external: true
+  mongo-config: # déclaration du volume pour les fichiers de configuration de MongoDB
+    name: mongo-config
+    external: true
+#$ docker run --network some-network -e ME_CONFIG_MONGODB_SERVER=some-mongo -p 8081:8081 mongo-express
