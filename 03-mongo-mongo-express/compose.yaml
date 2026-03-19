@@ -2,8 +2,8 @@ services:
   mongo:
     image: mongo:7.0.5
     container_name: mongo
-    ports:
-      - "27017:27017"
+    #ports:
+    #  - "27017:27017" # redirection du port 27017 pour permettre l'accès à MongoDB depuis l'extérieur du conteneur
     restart: always
     networks:
       - api-network
@@ -20,8 +20,8 @@ services:
     restart: always # redémarrage automatique du conteneur en cas de plantage
     networks:  # connexion au réseau pour permettre la communication avec le conteneur MongoDB
       - api-network
-    ports:
-      - "8081:8081"
+    #ports:
+    #  - "8081:8081"
     environment:
       ME_CONFIG_MONGODB_ADMINUSERNAME: ${MONGO_USERNAME}
       ME_CONFIG_MONGODB_ADMINPASSWORD: ${MONGO_PASSWORD}

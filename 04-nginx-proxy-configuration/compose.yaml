@@ -1,0 +1,17 @@
+services:
+  nginx:
+    image: nginx:1.29.5-alpine
+    container_name: nginx
+    ports:
+      - "80:80" # redirection des ports 80 et 443 pour le trafic HTTP et HTTPS
+      - "443:443" # redirection des ports 80 et 443 pour le trafic HTTP et HTTPS
+    restart: always
+    networks:
+      - api-network
+    volumes:
+      - ./configurations/mongo-express.conf:/etc/nginx/conf.d/mongo-express.conf
+
+networks:
+  api-network:
+    name: api-network
+    external: true
