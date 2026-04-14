@@ -1,4 +1,4 @@
-## Run Container 
+## Run Container en montant un volume (option -v)
 ```sh
 docker run -v ./02-default-website/index.html:/usr/share/nginx/html/index.html -p 80:80 --name nginx_server -d nginx:1.29.5-alpine
 ```

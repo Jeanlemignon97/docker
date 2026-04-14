@@ -31,7 +31,7 @@ services:
 networks:
   api-network:
     name: api-network
-    external: true
+    external: true # utilisation d'un réseau externe pour permettre la communication entre les conteneurs
 
 volumes: # déclaration du volume pour les données de MongoDB
   mongo-data: # déclaration du volume pour les données de MongoDB

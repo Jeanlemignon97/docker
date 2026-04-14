@@ -1,12 +1,233 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Page d'accueil</title>
+    <title>Bienvenue - Plateforme Professionnelle</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #667eea;
+            text-decoration: none;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: #333;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-weight: 500;
+        }
+
+        nav a:hover {
+            color: #667eea;
+        }
+
+        main {
+            flex: 1;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+            width: 100%;
+        }
+
+        .hero {
+            background: white;
+            border-radius: 10px;
+            padding: 4rem 2rem;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            margin-bottom: 3rem;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            color: #667eea;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: #666;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.4);
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .feature-card h3 {
+            color: #667eea;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .feature-card p {
+            color: #666;
+            line-height: 1.8;
+        }
+
+        footer {
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: auto;
+        }
+
+        footer p {
+            margin: 0.5rem 0;
+            font-size: 0.95rem;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            nav ul {
+                gap: 1rem;
+                font-size: 0.9rem;
+            }
+
+            main {
+                padding: 1.5rem 1rem;
+            }
+
+            .hero {
+                padding: 2rem 1rem;
+            }
+        }
+    </style>
 </head>
 <body>
-    <h1>Bienvenue sur le site web !</h1>
-    <p>Ceci est la page d'accueil de mon site. Vous pouvez ajouter du contenu ici pour présenter votre site ou fournir des informations importantes.</p>
+    <header>
+        <nav>
+            <a href="#" class="logo">WEB PRO</a>
+            <ul>
+                <li><a href="#accueil">Accueil</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero" id="accueil">
+            <h1>Bienvenue sur notre plateforme</h1>
+            <p>Découvrez une expérience web moderne et professionnelle. Nous proposons des solutions innovantes pour accompagner votre succès.</p>
+            <button class="cta-button">Commencer</button>
+        </section>
+
+        <section class="features" id="services">
+            <div class="feature-card">
+                <h3>🚀 Performance</h3>
+                <p>Infrastructure optimisée et rapide pour une meilleure expérience utilisateur et un chargement instantané.</p>
+            </div>
+            <div class="feature-card">
+                <h3>🔒 Sécurité</h3>
+                <p>Protection maximale de vos données avec les dernières technologies de sécurité et de chiffrement.</p>
+            </div>
+            <div class="feature-card">
+                <h3>📱 Responsive</h3>
+                <p>Design adaptatif qui fonctionne parfaitement sur tous les appareils et résolutions d'écran.</p>
+            </div>
+            <div class="feature-card">
+                <h3>💡 Innovation</h3>
+                <p>Nous mettons à jour régulièrement nos solutions avec les dernières technologies du web.</p>
+            </div>
+            <div class="feature-card">
+                <h3>👥 Support</h3>
+                <p>Équipe dédiée prête à vous accompagner à chaque étape de votre parcours.</p>
+            </div>
+            <div class="feature-card">
+                <h3>📊 Analytics</h3>
+                <p>Tableaux de bord intuitifs pour suivre vos performances et prendre les bonnes décisions.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Plateforme Professionnelle. Tous droits réservés.</p>
+        <p>Conçu avec <span style="color: #ff6b6b;">❤</span> pour votre succès</p>
+    </footer>
 </body>
 </html>
